@@ -387,7 +387,7 @@ const App: React.FC = () => {
             <button
               className="pagination-btn"
               onClick={() => paginate(currentPage - 1)}
-              disabled={currentPage > 0}
+              disabled={currentPage > 0 && currentPage === 1}
             >
               ← Previous
             </button>
@@ -409,7 +409,7 @@ const App: React.FC = () => {
             <button
               className="pagination-btn"
               onClick={() => paginate(currentPage + 1)}
-              disabled={records.length < 6}
+              disabled={ records.length < 6 && currentPage === 1 || currentPage >= totalPages} 
             >
               Next →
             </button>
